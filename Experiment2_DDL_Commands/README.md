@@ -105,15 +105,21 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+
+<img width="1224" height="427" alt="image" src="https://github.com/user-attachments/assets/731d0733-f8eb-4725-a607-858bad2b77df" />
 
 ```sql
--- Paste your SQL code below for Question 1
+create table Reviews(
+ReviewID INTEGER,
+ProductID INTEGER,
+Rating REAL,
+ReviewText TEXT);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1206" height="414" alt="image" src="https://github.com/user-attachments/assets/f70f1753-b7cb-4480-959e-296942c73ea0" />
+
 
 **Question 2**
 ---
