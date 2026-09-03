@@ -38,144 +38,153 @@ DROP VIEW view_name;
 
 **Question 1**
 --
-From the following tables write a SQL query to find the order values greater than the average order value of 10th October 2012. Return ord_no, purch_amt, ord_date, customer_id, salesman_id.
+<img width="675" height="450" alt="image" src="https://github.com/user-attachments/assets/36063447-26c2-429c-94f2-dd9ed9c1330b" />
 
-Note: date should be yyyy-mm-dd format
-
-ORDERS TABLE
-
-name type
-
-ord_no int purch_amt real ord_date text customer_id int salesman_id int
-
-For example:
-
-Result ord_no purch_amt ord_date customer_id salesman_id
-
-70005 2400.6 2012-07-27 3007 5001 70008 5760.0 2012-09-10 3002 5001 70003 2480.4 2012-10-10 3009 5003 70013 3045.6 2012-04-25 3002 5001
 
 ```sql
-SELECT ord_no, purch_amt, ord_date, customer_id, salesman_id
-FROM ORDERS
-WHERE purch_amt > (
-    SELECT AVG(purch_amt)
-    FROM ORDERS
-    WHERE ord_date = '2012-10-10'
-);
+select * from customer
+where city !=(select city from customer order by id desc);
 ```
 
 **Output:**
 
-<img width="1268" height="508" alt="image" src="https://github.com/user-attachments/assets/28dd78c4-b0d0-4241-a368-ca81a3471b0a" />
+<img width="690" height="467" alt="image" src="https://github.com/user-attachments/assets/b12a7165-0257-46ee-aa65-133a8c9fa6bc" />
+
 
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="727" height="398" alt="image" src="https://github.com/user-attachments/assets/7a4da027-99cf-4705-b64d-a63ed46e8a86" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+select * from Medications
+where dosage = (select min(dosage) from Medications );
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="686" height="382" alt="image" src="https://github.com/user-attachments/assets/3cbceced-b935-42bb-b3c2-df0031afa2a0" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="690" height="490" alt="image" src="https://github.com/user-attachments/assets/9777c2cc-9a50-4c29-977f-d37390ae3909" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+select * from Employee
+where age<(select avg(age) from Employee where income>1000000);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="698" height="406" alt="image" src="https://github.com/user-attachments/assets/134a82b9-872f-4073-938c-d26688e50a00" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="693" height="442" alt="image" src="https://github.com/user-attachments/assets/9b7d9b0c-d2d6-4dd1-837d-59a966a84392" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+select name,city from customer
+where city IN(select city from customer where id IN(3,7));
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="677" height="418" alt="image" src="https://github.com/user-attachments/assets/cbca8c3d-1c32-419c-85e0-e1841a64c16a" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="697" height="510" alt="image" src="https://github.com/user-attachments/assets/832a783a-93ff-4c63-b6f7-75c66c6453c1" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+select * from  grades g1
+where grade = (select min(grade) from grades g2 where g1.subject = g2.subject);
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="707" height="446" alt="image" src="https://github.com/user-attachments/assets/932ebecf-949f-4288-8375-5ec6e324a3a4" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="682" height="543" alt="image" src="https://github.com/user-attachments/assets/829ae103-27f7-42ce-b9be-df8720d8bf9d" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+select * from customers
+where salary <2500;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="713" height="457" alt="image" src="https://github.com/user-attachments/assets/48913e4a-01cd-4770-aa2b-346e3da0b996" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="697" height="510" alt="image" src="https://github.com/user-attachments/assets/9b459f02-abca-4c6d-87e0-d60058335cf2" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+select * from grades g1
+where grade =(select max(grade) from grades g2 where g1.subject = g2.subject);
 ```
 
 **Output:**
+<img width="702" height="437" alt="image" src="https://github.com/user-attachments/assets/1a217c07-a6dc-4cbb-905f-756662330418" />
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="658" height="652" alt="image" src="https://github.com/user-attachments/assets/6004752a-87ed-46a7-a09f-577c4f4ebf28" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+select ord_no ,purch_amt,ord_date,salesman_id from orders
+where salesman_id IN ( select salesman_id from salesman where  commission = (select max(commission) from salesman));
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="713" height="472" alt="image" src="https://github.com/user-attachments/assets/035803b3-0c33-471c-acda-425a97a73de8" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="670" height="491" alt="image" src="https://github.com/user-attachments/assets/305fde99-c4ee-4c02-a1ac-3f7c33c719b6" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+select * from orders
+where purch_amt>(select avg(purch_amt) from orders where ord_date = '2012-10-10' );
 ```
 
 **Output:**
+<img width="702" height="408" alt="image" src="https://github.com/user-attachments/assets/c5c68e32-99e7-48f3-9e53-f2cb4f265a10" />
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="686" height="512" alt="image" src="https://github.com/user-attachments/assets/ed485f9d-9ed8-467e-a68a-561a0d513628" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+select student_name,grade from GRADES g1
+where grade  =(select max(grade) from GRADES g2 where g1.subject = g2.subject);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="712" height="442" alt="image" src="https://github.com/user-attachments/assets/4b6fa548-6d0b-411e-bb8d-c4f1c61e02ce" />
+
 
 
 ## RESULT
