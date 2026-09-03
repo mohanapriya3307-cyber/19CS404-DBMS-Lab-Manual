@@ -38,15 +38,36 @@ DROP VIEW view_name;
 
 **Question 1**
 --
--- Paste Question 1 here
+From the following tables write a SQL query to find the order values greater than the average order value of 10th October 2012. Return ord_no, purch_amt, ord_date, customer_id, salesman_id.
+
+Note: date should be yyyy-mm-dd format
+
+ORDERS TABLE
+
+name type
+
+ord_no int purch_amt real ord_date text customer_id int salesman_id int
+
+For example:
+
+Result ord_no purch_amt ord_date customer_id salesman_id
+
+70005 2400.6 2012-07-27 3007 5001 70008 5760.0 2012-09-10 3002 5001 70003 2480.4 2012-10-10 3009 5003 70013 3045.6 2012-04-25 3002 5001
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT ord_no, purch_amt, ord_date, customer_id, salesman_id
+FROM ORDERS
+WHERE purch_amt > (
+    SELECT AVG(purch_amt)
+    FROM ORDERS
+    WHERE ord_date = '2012-10-10'
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1268" height="508" alt="image" src="https://github.com/user-attachments/assets/28dd78c4-b0d0-4241-a368-ca81a3471b0a" />
+
 
 **Question 2**
 ---
