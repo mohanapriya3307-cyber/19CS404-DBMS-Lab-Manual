@@ -86,7 +86,7 @@ from employee;
 ---
 <img width="1208" height="561" alt="image" src="https://github.com/user-attachments/assets/224b6cc3-bff0-443d-b075-a328967cbc03" />
 
-
+ 
 ```sql
 select specialty,count(*) as TotalDocto
 from doctors
